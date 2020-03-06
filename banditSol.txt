@@ -1,0 +1,77 @@
+0) cat readme
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+1) cat ./-
+CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+2) cat spaces\ in\ this\ filename
+UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+3) cat inhere/.hidden
+pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+4) cd inhere
+file ./*
+cat ./-file07
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+5) cd inhere
+find ./ -size 1033c
+cat ./maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+6) find /* -size 33c -user bandit7 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+7) grep millionth ./data.txt
+cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+8) cat data.txt | sort | uniq -c | sort
+UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+9) strings data.txt
+9b) strings data.txt | grep ==
+truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+10) base64 -d data.txt
+IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+11)  cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+12) 
+xxd -r data.txt data1.gz
+gunzip data1.gz
+bunzip2 data1
+tar -xvf data1.out
+tar -xvf data5.bin
+bunzip2 data6.bin
+tar -xvf data6.bin.out
+mv data8.bin data8.gz
+gunzip data8.gz
+
+8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+13)ssh bandit14@localhost -i sshkey.private
+
+14)nc localhost 30000
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+15)openssl s_client -connect localhost:30001
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+16)
+- nmap -A localhost -p "31000-32000"
+- openssl s_client -connect localhost:31790
+- create file with RSA private key
+- chmod 400 private.key
+- ssh bandit17@localhost -i /tmp/albejust/private.key
+
+17) 
+diff passwords.new passwords.old
+ssh bandit18@localhost
+kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+18) ssh -T bandit18@bandit.labs.overthewire.org -p 2220
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
