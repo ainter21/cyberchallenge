@@ -50,7 +50,7 @@ The stack keeps track of which functons were called before the current one, it h
 1.  cdecl: C declaration. Function parameters pushed onto stack right to left, saves the old frame pointer and sets up a new stack frame. Caller is responsible for cleaning up the stack.
 2. stdcall: microsoft C++ code. The callee is responsible for cleaning up any stack parameters it takes
 
-- CALL: call procedure. It transfer the control to a different function, in away that control can be later be resumed where it left off. First it pushes the address of the next instruction onto the stack, then it changes EIP to the address given in the instruction
+- CALL: call procedure. It transfer the control to a different function, in a way that control can be later be resumed where it left off. First it pushes the address of the next instruction onto the stack, then it changes EIP to the address given in the instruction
 - RET: return from procedure. There are two forms: one pop the top of the stack into EIP, while the other pop the top of the stack into EIP and add a constant number of bytes to ESP.
 - MOV: move. It never moves memory to memory:
   - register to register
@@ -59,7 +59,23 @@ The stack keeps track of which functons were called before the current one, it h
   - immediate to register
   - immediate to memory
 - 
+### Example1.c
+- The base pointer value is pushed into the stack (EBP). Automatically, the Stack pointer (ESP) changes its value by -4 (0x0012FF6C -> 0x0012FF68)
+- The value of the stack pointer (ESP) is copied into the base pointer (EBP). This is the starting point.
+- The function `sub()` is called. This line states that the code of the function is situated in 40100HEX. The return address is pushed into the stack and the stack pointer (ESP), is again decremented by 4.
+- we enter the function: the value of the base pointer is pushed into the stack, and the stack pointer is decremented by 4.
+- the EBP is updated with the value of the ESP
+- the value 0BEEF is saved into the EAX register.
+- a value is pop form the stack and it is put into the EBP. The ESP is incremented by 4.
+- RET is called: A value is popped from the stack, the ESP is incremented by 4. This is the value of the pointer to the next instruction.
+- Now we return to the main function. We move the value 0FOOD to the register EAX
+- A value from the stack is popped and saved into EBP. The ESP is incremented by 4.
+- Lastly, the RET for the main function is called. A value from the stack is popped and the ESP is incremented by 4 
 
+## New commands
+
+- LEA: load effective address. It is frequently used with pointer arithmetic, sometimes for just arithmetic in general.
+- ADD and SUB: adds or subtracts,
 ## Control Flow
 
 Two forms of control flow:
@@ -88,4 +104,53 @@ Two forms of control flow:
 - line 3 allocate space for the two local varibles, initialized afterward.
 - then it compares the two number
 - jne jumps if the two variables are not equal (the opposite what is written in the code).
+
+
+
+
+# Crash course
+
+Assembly is used to translate computer programming code into human readable code, in order to understand binary.
+
+Every C program has 4 main components:
+1. Heap: manual memory allocation. (malloc, calloc and global and static variables)
+2. Stack: datastructure composed of elements that can be added or removed: push add elements to the stack, while pop removes elements from the stack. Element that higher in the stack have a lower address compared to those that are in the bottom of the stack. The stack grows to lower memory addresses. 
+3. Registers: small storage areas of processor that can store addresses and values that can be represented by 8 bytes or less. There are 6 general purpose registers: eax, ebx, ecx, edx, esi, edi. These registers are used when needed. There are also 3 registers reserved: ebp, esp and eip. 
+4. Instructions
+
+We are going to analyze the 32 bit architecture.
+
+The EBP register points to the base of the stack, while the ESP, also known as the stack pointer, refers to the top element of the stack frame.
+
+# CheatSheet
+- `mov ebx, 123` -> `ebx = 123`
+- `mov eax, ebx` -> `eax = ebx`
+- `add ebx, ecx` -> `ebx += ecx`
+- `sub ebx, edx` -> `ebx -= edx`
+Always applied to the EAX register
+- `mul ebx` -> `eax *= ebx`
+- `div edx` -> `eax /= edx`
+
+# TutorialsPoint
+
+An assembly program can be divided into three sections:
+- the data section
+- the bss section
+- the text section
+
+The **data** section is used to declare and initialize constants. these data do not change at runtime.
+
+`section.data`
+
+The **bss** section is used for declaring variables.
+
+`section.bss`
+
+The **text** section is used for keeping the actual code. This section must begin with the declaration **global _start**, which tesll the kernel where the program execution begins.
+
+```assembly
+section.text
+  global _start
+  _start:  
+```
 

