@@ -140,17 +140,20 @@ An assembly program can be divided into three sections:
 
 The **data** section is used to declare and initialize constants. these data do not change at runtime.
 
-`section.data`
+`section .data`
 
 The **bss** section is used for declaring variables.
 
-`section.bss`
+`section .bss`
 
 The **text** section is used for keeping the actual code. This section must begin with the declaration **global _start**, which tesll the kernel where the program execution begins.
 
 ```assembly
-section.text
+section .text
   global _start
   _start:  
 ```
 
+Assembly language sratements are entered one statement per line.
+
+`[label] mnemonic [operands] [;comments]`
